@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>ListView调用按钮删除某一行item | wapchief的博客</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="简书：八怪不姓丑">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ListView调用按钮删除某一行item | wapchief的博客">
+    <meta name="twitter:description" content="简书：八怪不姓丑">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ListView调用按钮删除某一行item | wapchief的博客">
+    <meta property="og:description" content="简书：八怪不姓丑">
+
+    
+    <meta name="author" content="John Doe">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/mylogo.jpg">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="wapchief的博客" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://yoursite.com/2017/04/21/20161004/"/>
+
+    
+    <link rel="author" href="http://www.jianshu.com/users/9f0bedd0835c"/>
+    
+      
+</head>
+
+<body class="home-template no-js">
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 wapchief的博客 的主页"><img src="/images/mylogo.jpg" width="80" alt="wapchief的博客 logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for wapchief的博客">wapchief的博客</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">android、IT互联网、java</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">简书：八怪不姓丑</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
+            
+              <li class="navigation__item"><a href="http://www.jianshu.com/users/9f0bedd0835c">简书</a></li>
+            
+              <li class="navigation__item"><a href="http://blog.csdn.net/wapchief">CSDN</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="http://weibo.com/waphack" title="我的微博" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/wapchief" title="查看我的GitHub主页" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+        <li class="navigation__item">
+            <a href="http://www.jianshu.com/users/9f0bedd0835c" title="Stack Overflow" target="_blank">
+                <i class='social fa fa-stack-overflow'></i>
+                <span class="label">Stack Overflow</span>
+            </a>
+        </li>
+        
+
+  <!-- Google Plus -->
+  
+  <li class="navigation__item">
+    <a href="http://www.jianshu.com/users/9f0bedd0835c" title="Google+" target="_blank">
+      <i class='social fa fa-google-plus-square'></i>
+      <span class="label">Google+</span>
+    </a>
+  </li>
+
+
+<!-- Facebook -->
+
+  <li class="navigation__item">
+    <a href="https://www.facebook.com/wapchief" title="上Facebook找我" target="_blank">
+      <i class='social fa fa-facebook'></i>
+      <span class="label">Facebook</span>
+    </a>
+  </li>
+
+  
+<!-- Twitter -->
+
+  <li class="navigation__item">
+    <a href="https://twitter.com/wapchief" title="上Twitter找我" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-purple"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-04-21T02:39:05.132Z" class="post-list__meta--date date">2017-04-21</time> &#8226; <span class="post-meta__tags tags">于&nbsp; </span>
+      <span class="page-pv">
+      &nbsp;阅读&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">ListView调用按钮删除某一行item</h1>
+  </header>
+
+  <section class="post">
+    <p>ListView布局包括checkbox(复选框)、img、title（商品名称）、type（分类）、两个Button（加减）、三个textview（原价，单价，数量），imgDelete（delete）<br><img src="http://img.blog.csdn.net/20160924180402067" alt="这里写图片描述"></p>
+<p>xml：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;90dp&quot;</div><div class="line">    android:background=&quot;@color/white&quot;</div><div class="line">    android:gravity=&quot;center_vertical&quot;</div><div class="line">    android:orientation=&quot;horizontal&quot;&gt;</div><div class="line">    &lt;!-- 小对勾的布局 --&gt;</div><div class="line">    &lt;CheckBox</div><div class="line">        android:id=&quot;@+id/shopping_lv_checkbox&quot;</div><div class="line">        android:layout_width=&quot;wrap_content&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:layout_marginLeft=&quot;@dimen/dp_10&quot;</div><div class="line">        android:focusable=&quot;false&quot;</div><div class="line">        android:focusableInTouchMode=&quot;false&quot; /&gt;</div><div class="line">    &lt;!-- 图片布局 --&gt;</div><div class="line">    &lt;ImageView</div><div class="line">        android:id=&quot;@+id/shopping_lv_img&quot;</div><div class="line">        android:layout_width=&quot;64dp&quot;</div><div class="line">        android:layout_height=&quot;64dp&quot;</div><div class="line">        android:layout_margin=&quot;10dp&quot;</div><div class="line">        android:scaleType=&quot;centerCrop&quot;</div><div class="line">        android:src=&quot;@mipmap/tuceng1&quot; /&gt;</div><div class="line">    &lt;!-- 商品名称和价格的布局 --&gt;</div><div class="line">    &lt;LinearLayout</div><div class="line">        android:layout_width=&quot;fill_parent&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:orientation=&quot;vertical&quot;&gt;</div><div class="line">        &lt;!-- 商品名称的布局 --&gt;</div><div class="line">        &lt;RelativeLayout</div><div class="line">            android:layout_width=&quot;match_parent&quot;</div><div class="line">            android:layout_height=&quot;wrap_content&quot;</div><div class="line">            android:layout_marginTop=&quot;@dimen/dp_5&quot;</div><div class="line">            android:gravity=&quot;center_vertical&quot;&gt;</div><div class="line"></div><div class="line">            &lt;TextView</div><div class="line">                android:id=&quot;@+id/shopping_lv_title&quot;</div><div class="line">                android:layout_width=&quot;wrap_content&quot;</div><div class="line">                android:layout_height=&quot;wrap_content&quot;</div><div class="line">                android:text=&quot;连衣裙女夏季&quot;</div><div class="line">                android:textSize=&quot;@dimen/sp_14&quot; /&gt;</div><div class="line"></div><div class="line">            &lt;TextView</div><div class="line">                android:id=&quot;@+id/shopping_lv_moneyDel&quot;</div><div class="line">                android:layout_width=&quot;wrap_content&quot;</div><div class="line">                android:layout_height=&quot;wrap_content&quot;</div><div class="line">                android:layout_alignParentEnd=&quot;true&quot;</div><div class="line">                android:layout_alignParentTop=&quot;true&quot;</div><div class="line">                android:layout_marginEnd=&quot;20dp&quot;</div><div class="line">                android:text=&quot;1111&quot;</div><div class="line">                android:textSize=&quot;@dimen/sp_14&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;/RelativeLayout&gt;</div><div class="line">        &lt;!-- 价格的布局 --&gt;</div><div class="line">        &lt;RelativeLayout</div><div class="line">            android:layout_width=&quot;match_parent&quot;</div><div class="line">            android:layout_height=&quot;30dp&quot;</div><div class="line">            android:gravity=&quot;center_vertical&quot;</div><div class="line">            android:orientation=&quot;horizontal&quot;&gt;</div><div class="line"></div><div class="line">            &lt;TextView</div><div class="line">                android:id=&quot;@+id/shopping_lv_content&quot;</div><div class="line">                android:layout_width=&quot;wrap_content&quot;</div><div class="line">                android:layout_height=&quot;wrap_content&quot;</div><div class="line">                android:layout_marginTop=&quot;10dp&quot;</div><div class="line">                android:text=&quot;500g&quot;</div><div class="line">                android:textSize=&quot;12sp&quot; /&gt;</div><div class="line"></div><div class="line">            &lt;TextView</div><div class="line">                android:id=&quot;@+id/shopping_lv_money&quot;</div><div class="line">                android:layout_width=&quot;wrap_content&quot;</div><div class="line">                android:layout_height=&quot;wrap_content&quot;</div><div class="line">                android:layout_alignParentEnd=&quot;true&quot;</div><div class="line">                android:layout_alignTop=&quot;@+id/shopping_lv_content&quot;</div><div class="line">                android:layout_gravity=&quot;bottom&quot;</div><div class="line">                android:layout_marginEnd=&quot;20dp&quot;</div><div class="line">                android:text=&quot;￥66&quot;</div><div class="line">                android:textColor=&quot;@color/balance_bg&quot;</div><div class="line">                android:textSize=&quot;16sp&quot; /&gt;</div><div class="line">        &lt;/RelativeLayout&gt;</div><div class="line"></div><div class="line">        &lt;RelativeLayout</div><div class="line">            android:layout_width=&quot;match_parent&quot;</div><div class="line">            android:layout_height=&quot;33dp&quot;</div><div class="line">            android:gravity=&quot;center_vertical&quot;</div><div class="line">            android:orientation=&quot;horizontal&quot;&gt;</div><div class="line">            &lt;!-- 加号 --&gt;</div><div class="line">            &lt;ImageView</div><div class="line">                android:id=&quot;@+id/shopping_lv_sub&quot;</div><div class="line">                android:layout_width=&quot;30dp&quot;</div><div class="line">                android:layout_height=&quot;30dp&quot;</div><div class="line">                android:background=&quot;@drawable/add_button_shape&quot;</div><div class="line">                android:src=&quot;@mipmap/icon_minus_3x&quot; /&gt;</div><div class="line"></div><div class="line">            &lt;TextView</div><div class="line">                android:id=&quot;@+id/shopping_lv_number&quot;</div><div class="line">                android:layout_width=&quot;30dp&quot;</div><div class="line">                android:layout_height=&quot;wrap_content&quot;</div><div class="line">                android:layout_centerVertical=&quot;true&quot;</div><div class="line">                android:layout_marginLeft=&quot;@dimen/dp_10&quot;</div><div class="line">                android:layout_marginStart=&quot;10dp&quot;</div><div class="line">                android:layout_toEndOf=&quot;@+id/shopping_lv_sub&quot;</div><div class="line">                android:gravity=&quot;center&quot;</div><div class="line">                android:inputType=&quot;&quot;</div><div class="line">                android:text=&quot;1&quot;</div><div class="line">                android:textSize=&quot;13sp&quot; /&gt;</div><div class="line">            &lt;!-- 减号--&gt;</div><div class="line">            &lt;ImageView</div><div class="line">                android:id=&quot;@+id/shopping_lv_add&quot;</div><div class="line">                android:layout_width=&quot;30dp&quot;</div><div class="line">                android:layout_height=&quot;30dp&quot;</div><div class="line">                android:layout_alignTop=&quot;@+id/shopping_lv_sub&quot;</div><div class="line">                android:layout_marginLeft=&quot;@dimen/dp_10&quot;</div><div class="line">                android:layout_toEndOf=&quot;@+id/shopping_lv_number&quot;</div><div class="line">                android:background=&quot;@drawable/add_button_shape&quot;</div><div class="line">                android:src=&quot;@mipmap/icon_add_3x&quot; /&gt;</div><div class="line"></div><div class="line">            &lt;ImageView</div><div class="line">                android:id=&quot;@+id/shopping_lv_delete&quot;</div><div class="line">                android:layout_width=&quot;wrap_content&quot;</div><div class="line">                android:layout_height=&quot;wrap_content&quot;</div><div class="line">                android:layout_alignParentEnd=&quot;true&quot;</div><div class="line">                android:layout_centerVertical=&quot;true&quot;</div><div class="line">                android:layout_marginEnd=&quot;20dp&quot;</div><div class="line">                android:layout_marginLeft=&quot;@dimen/dp_110&quot;</div><div class="line">                android:layout_marginRight=&quot;@dimen/dp_15&quot;</div><div class="line">                android:src=&quot;@mipmap/btn_delete_3x&quot; /&gt;</div><div class="line">        &lt;/RelativeLayout&gt;</div><div class="line"></div><div class="line"></div><div class="line">    &lt;/LinearLayout&gt;</div><div class="line">&lt;/LinearLayout&gt;</div></pre></td></tr></table></figure></p>
+<p>获取listview中的imgDelete控件，执行删除单条纪录的操作。<br>ShoppingCartListViewAdapter：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"> private View.OnClickListener onDelItem;//删除单条item的接口</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line"></div><div class="line">  public View getView(final int i, View view, ViewGroup viewGroup) &#123;</div><div class="line">        ViewHolder holder = null;</div><div class="line">        if (view == null) &#123;</div><div class="line">            holder = new ViewHolder();</div><div class="line">            view = LayoutInflater.from(this.context).inflate(R.layout.shopping_listview_item, null, true);</div><div class="line">          //实例化item获取控件</div><div class="line">            holder.shopping_lv_delete = (ImageView) view.findViewById(R.id.shopping_lv_delete);</div><div class="line">            //设置回调监听</div><div class="line">            holder. shopping_lv_delete.setOnClickListener(onDelItem);</div><div class="line">            holder.shopping_lv_delete.setTag(i);</div><div class="line">            view.setTag(holder);</div><div class="line"></div><div class="line">        &#125; else &#123;</div><div class="line">            holder = (ViewHolder) view.getTag();</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line"> class ViewHolder &#123;</div><div class="line">        </div><div class="line">        ImageView shopping_lv_delete;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    /**</div><div class="line">    *定义监听接口</div><div class="line">    */</div><div class="line"> public void setOnDelItem(View.OnClickListener onDelItem) &#123;</div><div class="line">        this.onDelItem = onDelItem;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>Activity：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">private ShoppingCartListViewAdapter adapter;</div><div class="line">private ListView shopping_listview;</div><div class="line">private List&lt;ShoppingCartListView&gt; list = new ArrayList&lt;ShoppingCartListView&gt;();</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">shopping_lv_delete = (ImageView) findViewById(R.id.shopping_lv_delete);</div><div class="line">shopping_lv_delete.setOnClickListener(this);</div></pre></td></tr></table></figure>
+<p>onCreate方法中设置适配器的监听，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">adapter = new ShoppingCartListViewAdapter(getActivity(), list);</div><div class="line">       shopping_listview.setAdapter(adapter);</div><div class="line">       **adapter.setOnDelItem(this);**</div></pre></td></tr></table></figure>
+<p>通过Tag的position，获取当前点击的item，<br>这里使用了popupMenu。在点击删除的时候会弹出确认删除框</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">if (tag != null &amp;&amp; tag instanceof Integer) &#123; </div><div class="line">                int position = (Integer) tag;</div><div class="line">                showPopupMenu(view, position);</div><div class="line">            &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//删除弹窗</div><div class="line">public void showPopupMenu(final View view, final int position) &#123;</div><div class="line">    final PopupMenu popup = new PopupMenu(getActivity(), view);</div><div class="line">    popup.getMenuInflater().inflate(R.menu.popup, popup.getMenu());</div><div class="line">    popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() &#123;</div><div class="line">        @Override</div><div class="line">        public boolean onMenuItemClick(MenuItem menuItem) &#123;</div><div class="line">            switch (menuItem.getItemId()) &#123;</div><div class="line">                case R.id.remove:</div><div class="line">                    list.remove(position);</div><div class="line">                    adapter.notifyDataSetChanged();</div><div class="line">                    break;</div><div class="line">            &#125;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    popup.show();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>popup</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">    &lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</div><div class="line">        &lt;item</div><div class="line">            android:id=&quot;@+id/remove&quot;</div><div class="line">            android:title=&quot;@string/delete&quot;/&gt;</div><div class="line">    &lt;/menu&gt;</div></pre></td></tr></table></figure>
+  </section>
+
+</article>
+<section class="read-more">
+           
+    
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">最近的文章</span>
+                <h2 class="post-list__post-title post-title"><a href="/2017/04/21/1/" title="使用hexo+github免费搭建个人博客网站超详细教程">使用hexo+github免费搭建个人博客网站超详细教程</a></h2>
+                <p class="excerpt">
+                
+                很多人都想搭建自己的博客，但是奈何技术有限，服务器部署，HTML，域名解析，等等，这一大堆东西可真有的折腾。
+但是如果有这样一个机会，不需要太复杂的操作，不要服务器，不要域名，不用写html，你愿意去尝试吗？
+可以先看一下我自己的http://wapchief.com背景图有点大，3M多，可能加载比
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2017-04-21T02:39:05.023Z" class="post-list__meta--date date">2017-04-21</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;</span><a class="btn-border-small" href="/2017/04/21/1/">继续阅读</a></div>
+                           
+            </div>
+        
+        
+        
+     
+   
+   
+  
+</section>
+
+            
+            <footer class="footer">
+    <span class="footer__copyright">
+        本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    </span>
+    <span class="footer__copyright">
+        基于 <a href="http://hexo.io">Hexo</a> 搭建，感谢 <a href="https://pages.github.com/">GitHub Pages</a> 提供免费的托管服务
+    </span>
+    <span class="footer__copyright">
+        &copy; 2017 - 
+	<br/>
+        简书： <a href="http://www.jianshu.com/users/9f0bedd0835c ">点击进入我的简书</a> 
+        <br/>
+	CSND：<a href="http://blog.csdn.net/wapchief">点击进入我的CSND</a> 
+    </span>
+</footer>
+        </div>
+    </div>
+
+    
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-85174419-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?151c14e522f9c13e78534077116f10af";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    
+    </script>
+    
+</body>
+</html>
