@@ -1,191 +1,255 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    
-    <title>wapchief的博客 | android、IT互联网、java</title>
-    <meta name="renderer" content="webkit">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <meta name="description" content="简书：八怪不姓丑">
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="wapchief的博客 | android、IT互联网、java">
-    <meta name="twitter:description" content="简书：八怪不姓丑">
-
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="wapchief的博客 | android、IT互联网、java">
-    <meta property="og:description" content="简书：八怪不姓丑">
-
-    
-    <meta name="author" content="John Doe">
-    
-    <link rel="stylesheet" href="/css/vno.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-
-    
-    <link rel="icon" href="/images/mylogo.jpg">
-    
-
-    <meta name="generator" content="hexo"/>
-    
-    <link rel="alternate" type="application/rss+xml" title="wapchief的博客" href="/atom.xml">
-    
-
-    <link rel="canonical" href="http://yoursite.com/2017/04/21/2/"/>
-
-    
-    <link rel="author" href="http://www.jianshu.com/users/9f0bedd0835c"/>
-    
-      
+  <meta charset="utf-8">
+  
+  <title>wapchief的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="必须要会的Git基本使用及常用命令操作之前一直用的svn，后来换了之后才发现git的强大功能，是svn不能比的。缺点就是可能上手比较难一点，刚开始自己研究了两天才摸索出来一些基本使用方法。最近做项目需要建库等等，都用到了git，随着越来越多的使用，也越来有越多的认识。一开始都是别人建好远程库，克隆下来就行了。下面内容只是带你git入门，一些基础的东西，是开发过程中一些基本的操作，单单这些你会用了">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wapchief的博客">
+<meta property="og:url" content="http://yoursite.com/2017/04/21/2/index.html">
+<meta property="og:site_name" content="wapchief的博客">
+<meta property="og:description" content="必须要会的Git基本使用及常用命令操作之前一直用的svn，后来换了之后才发现git的强大功能，是svn不能比的。缺点就是可能上手比较难一点，刚开始自己研究了两天才摸索出来一些基本使用方法。最近做项目需要建库等等，都用到了git，随着越来越多的使用，也越来有越多的认识。一开始都是别人建好远程库，克隆下来就行了。下面内容只是带你git入门，一些基础的东西，是开发过程中一些基本的操作，单单这些你会用了">
+<meta property="og:updated_time" content="2017-04-21T03:22:59.851Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="wapchief的博客">
+<meta name="twitter:description" content="必须要会的Git基本使用及常用命令操作之前一直用的svn，后来换了之后才发现git的强大功能，是svn不能比的。缺点就是可能上手比较难一点，刚开始自己研究了两天才摸索出来一些基本使用方法。最近做项目需要建库等等，都用到了git，随着越来越多的使用，也越来有越多的认识。一开始都是别人建好远程库，克隆下来就行了。下面内容只是带你git入门，一些基础的东西，是开发过程中一些基本的操作，单单这些你会用了">
+  
+    <link rel="alternative" href="/atom.xml" title="wapchief的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
 </head>
-
-<body class="home-template no-js">
-    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-    <script src="/js/main.js"></script>
-    <span class="mobile btn-mobile-menu">
-        <i class="fa fa-list btn-mobile-menu__icon"></i>
-        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
-    </span>
-
-    
-<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
-  <div class="panel-main">
-    <div class="panel-main__inner panel-inverted">
-    <div class="panel-main__content">
-
-        <a href="/" title="前往 wapchief的博客 的主页"><img src="/images/mylogo.jpg" width="80" alt="wapchief的博客 logo" class="panel-cover__logo logo" /></a>
-        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for wapchief的博客">wapchief的博客</a></h1>
-        
-        <span class="panel-cover__subtitle panel-subtitle">android、IT互联网、java</span>
-        
-        <hr class="panel-cover__divider" />
-        <p class="panel-cover__description">简书：八怪不姓丑</p>
-        <hr class="panel-cover__divider panel-cover__divider--secondary" />
-
-        <div class="navigation-wrapper">
-          <div>
-          <nav class="cover-navigation cover-navigation--primary">
-            <ul class="navigation">
-              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
             
-              <li class="navigation__item"><a href="http://www.jianshu.com/users/9f0bedd0835c">简书</a></li>
+            <img lazy-src="/img/head1.jpg" class="js-avatar">
             
-              <li class="navigation__item"><a href="http://blog.csdn.net/wapchief">CSDN</a></li>
-            
-            </ul>
-          </nav>
-          </div>
-          <div>
-          <nav class="cover-navigation navigation--social">
-  <ul class="navigation">
+        </a>
 
-  <!-- Weibo-->
-  
-  <li class="navigation__item">
-    <a href="http://weibo.com/waphack" title="我的微博" target="_blank">
-      <i class='social fa fa-weibo'></i>
-      <span class="label">Weibo</span>
-    </a>
-  </li> 
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">John Doe</a></h1>
+        </hgroup>
 
-
-  <!-- Github -->
-  
-  <li class="navigation__item">
-    <a href="https://github.com/wapchief" title="查看我的GitHub主页" target="_blank">
-      <i class='social fa fa-github'></i>
-      <span class="label">Github</span>
-    </a>
-  </li>
-
-
-<!-- Stack Overflow -->
         
-        <li class="navigation__item">
-            <a href="http://www.jianshu.com/users/9f0bedd0835c" title="Stack Overflow" target="_blank">
-                <i class='social fa fa-stack-overflow'></i>
-                <span class="label">Stack Overflow</span>
-            </a>
-        </li>
+        <p class="header-subtitle">Android、IT互联网</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
         
 
-  <!-- Google Plus -->
-  
-  <li class="navigation__item">
-    <a href="http://www.jianshu.com/users/9f0bedd0835c" title="Google+" target="_blank">
-      <i class='social fa fa-google-plus-square'></i>
-      <span class="label">Google+</span>
-    </a>
-  </li>
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/FrontEndGuide">前端导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=zLutvK_kpamqjL294q_joQ" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/wapchief" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/waphack" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                                <a class="fl twitter" target="_blank" href="#" title="twitter">twitter</a>
+                            
+                                <a class="fl linkedin" target="_blank" href="#" title="linkedin">linkedin</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luuman.github.io/">name</a>
+                    
+                    </div>
+                </section>
+                
 
-
-<!-- Facebook -->
-
-  <li class="navigation__item">
-    <a href="https://www.facebook.com/wapchief" title="上Facebook找我" target="_blank">
-      <i class='social fa fa-facebook'></i>
-      <span class="label">Facebook</span>
-    </a>
-  </li>
-
-  
-<!-- Twitter -->
-
-  <li class="navigation__item">
-    <a href="https://twitter.com/wapchief" title="上Twitter找我" target="_blank">
-      <i class='social fa fa-twitter'></i>
-      <span class="label">Twitter</span>
-    </a>
-  </li>
-
-  
-
-  <li class="navigation__item">
-    <a href="/atom.xml" title="RSS" target="_blank">
-      <i class='social fa fa-rss'></i>
-      <span class="label">RSS</span>
-    </a>
-  </li>
-
-
-
-  </ul>
-</nav>
-
-          </div>
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">纯海迷、爱运动、爱交友、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                </section>
+                
+            </div>
         </div>
-
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">John Doe</a></h1>
       </div>
-
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head1.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">John Doe</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Android、IT互联网</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/FrontEndGuide">前端导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=zLutvK_kpamqjL294q_joQ" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/wapchief" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/waphack" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="#" title="google">google</a>
+                    
+                        <a class="twitter" target="_blank" href="#" title="twitter">twitter</a>
+                    
+                        <a class="linkedin" target="_blank" href="#" title="linkedin">linkedin</a>
+                    
+                </div>
+            </nav>
+        </header>                
     </div>
-
-    <div class="panel-cover--overlay cover-purple"></div>
-  </div>
-</header>
-
-    <div class="content-wrapper">
-        <div class="content-wrapper__inner">
-            <article class="post-container post-container--single">
-
-  <header class="post-header">
-    <div class="post-meta">
-      <time datetime="2017-04-21T02:17:21.056Z" class="post-list__meta--date date">2017-04-21</time> &#8226; <span class="post-meta__tags tags">于&nbsp; </span>
-      <span class="page-pv">
-      &nbsp;阅读&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
-      </span> 
-   
+</nav>
+      <div class="body-wrap"><article id="post-2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/21/2/" class="article-date">
+      <time datetime="2017-04-21T02:17:21.056Z" itemprop="datePublished">2017-04-21</time>
+</a>
     </div>
-    <h1 class="post-title"></h1>
-  </header>
-
-  <section class="post">
-    <hr>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <hr>
 <h2 id="必须要会的Git基本使用及常用命令操作"><a href="#必须要会的Git基本使用及常用命令操作" class="headerlink" title="必须要会的Git基本使用及常用命令操作"></a>必须要会的Git基本使用及常用命令操作</h2><p>之前一直用的svn，后来换了之后才发现git的强大功能，是svn不能比的。缺点就是可能上手比较难一点，刚开始自己研究了两天才摸索出来一些基本使用方法。<br>最近做项目需要建库等等，都用到了git，随着越来越多的使用，也越来有越多的认识。<br>一开始都是别人建好远程库，克隆下来就行了。<br>下面内容只是带你git入门，一些基础的东西，是开发过程中一些基本的操作，单单这些你会用了之后就能发现他的好处，以及使用命令行Enter敲击时的快感，还能提高逼格。<br>当然我们还是为了方便项目管理。</p>
 <p>#####安装<br>git工具下载地址，可以选择适合自己的操作系统：<a href="https://git-scm.com/downloads" target="_blank" rel="external">https://git-scm.com/downloads</a><br>安装完git，要配置环境变量，拷贝git安装目录下的bin文件目录，如D:\Program Files\Git\bin<br>,将目录拷贝添加到PATH变量后。<br><strong>注意：与前面的值要用“;”号隔开</strong><br>具体步骤：</p>
 <blockquote>
@@ -226,97 +290,282 @@ git push origin master</code><br>如果按照上面的步骤来的话是不会�
 <hr>
 <p>关于这些只是对于刚入门的学习者有些帮助，在我学习的时候也遇到了好多坑，至今有些问题还能遇到，但是不至于手忙脚乱，起码知道问题出在了哪个环节。<br>Git是一个很强大的版本控制工具，有很多功能，需要尝试去深入研究，希望学习者能够感受到他带来的便捷。</p>
 
-  </section>
-
-</article>
-<section class="read-more">
-           
-    
-               
-            <div class="read-more-item">
-                <span class="read-more-item-dim">最近的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/04/21/4/" title="青少年心理引导类app目标用户人群分析">青少年心理引导类app目标用户人群分析</a></h2>
-                <p class="excerpt">
-                
-                前言
-心理是人们最难以捉摸的,很多家长和孩子们之间都存在沟通问题。孩子心理问题又不好去跟家长沟通，家长的不理解。去找心理医生又得掏腰包，麻烦不说还要面子，而且这种问题往往不是很快就能解决的，所以心理类的app也想在这个互联网的大环境中跻身进来。
-目前线上相对来说进入市场成熟一点的有q心理，壹心理等，
-                &hellip;
-                </p>
-                <div class="post-list__meta"><time datetime="2017-04-21T01:28:28.209Z" class="post-list__meta--date date">2017-04-21</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;</span><a class="btn-border-small" href="/2017/04/21/4/">继续阅读</a></div>
-                           
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
             </div>
-        
-        
-               
-            <div class="read-more-item">
-                <span class="read-more-item-dim">更早的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/04/21/1/" title="使用hexo+github免费搭建个人博客网站超详细教程">使用hexo+github免费搭建个人博客网站超详细教程</a></h2>
-                <p class="excerpt">
-                
-                很多人都想搭建自己的博客，但是奈何技术有限，服务器部署，HTML，域名解析，等等，这一大堆东西可真有的折腾。
-但是如果有这样一个机会，不需要太复杂的操作，不要服务器，不要域名，不用写html，你愿意去尝试吗？
-可以先看一下我自己的http://wapchief.com背景图有点大，3M多，可能加载比
-                &hellip;
-                </p>
-                <div class="post-list__meta"><time datetime="2017-04-21T02:39:05.023Z" class="post-list__meta--date date">2017-04-21</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;</span><a class="btn-border-small" href="/2017/04/21/1/">继续阅读</a></div>
-                       
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
             </div>
-        
-     
-   
-   
-  
-</section>
-
-            
-            <footer class="footer">
-    <span class="footer__copyright">
-        本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
-    </span>
-    <span class="footer__copyright">
-        基于 <a href="http://hexo.io">Hexo</a> 搭建，感谢 <a href="https://pages.github.com/">GitHub Pages</a> 提供免费的托管服务
-    </span>
-    <span class="footer__copyright">
-        &copy; 2017 - 
-	<br/>
-        简书： <a href="http://www.jianshu.com/users/9f0bedd0835c ">点击进入我的简书</a> 
-        <br/>
-	CSND：<a href="http://blog.csdn.net/wapchief">点击进入我的CSND</a> 
-    </span>
-</footer>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
         </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/04/21/2/"></a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 John Doe 的个人博客">John Doe</a></p>
+        <p><span>发布时间:</span>2017年04月21日 - 10时17分</p>
+        <p><span>最后更新:</span>2017年04月21日 - 11时22分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/21/2/" title="">http://yoursite.com/2017/04/21/2/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/04/21/2/　　作者: John Doe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
-    
 
-     
+
+<nav id="article-nav">
+  
+    <a href="/2017/04/21/4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          青少年心理引导类app目标用户人群分析
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/21/1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用hexo+github免费搭建个人博客网站超详细教程</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#必须要会的Git基本使用及常用命令操作"><span class="toc-number">1.</span> <span class="toc-text">必须要会的Git基本使用及常用命令操作</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 <script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
 
-	ga('create', 'UA-85174419-1', 'auto');
-	ga('send', 'pageview');
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
 </script>
 
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
     
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/04/21/4/" title="上一篇: 青少年心理引导类app目标用户人群分析">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/04/21/1/" title="下一篇: 使用hexo+github免费搭建个人博客网站超详细教程">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/20161004/">ListView调用按钮删除某一行item</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/1/">使用hexo+github免费搭建个人博客网站超详细教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/2/">2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/4/">青少年心理引导类app目标用户人群分析</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "//hm.baidu.com/hm.js?151c14e522f9c13e78534077116f10af";
-            var s = document.getElementsByTagName("script")[0]; 
-            s.parentNode.insertBefore(hm, s);
-        })();
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
     </script>
 
 
 
-    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-    
+    <script>
+        
     </script>
-    
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 John Doe
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
 </body>
 </html>
